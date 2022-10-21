@@ -1,0 +1,8 @@
+- name: play
+  hosts: centrals
+  tasks:
+    - name: ping a host
+      ansible.builtin.ping:
+    - name: print message
+      debug:
+        msg: hello
