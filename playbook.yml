@@ -1,8 +1,11 @@
-- name: play
-  hosts: centrals
+- name: Тестовый запуск
+  hosts: nodes
   tasks:
     - name: ping a host
       ansible.builtin.ping:
     - name: print message
       debug:
         msg: hello
+    - name: install nginx
+      apt:
+        name: nginx
