@@ -1,11 +1,37 @@
-- name: Тестовый запуск
+- name: Set up nodes
   hosts: nodes
   tasks:
-    - name: ping a host
-      ansible.builtin.ping:
-    - name: print message
-      debug:
-        msg: hello
-    - name: install nginx
+    - name: add PPA php
+      apt_repository:
+        validate_certs: no
+        repo: 'ppa:ondrej/php'
+        state: present
+    - name: install nginx, php
       apt:
+        pkg:
+        - nginx
+        - php8.1-fpm
+    - name: Copy a server configuration
+      copy:
+        src: nginx-site-conf
+        dest: /etc/nginx/sites-available/default
+    - name: nginx conf validation
+      shell: nginx -t
+      register: output
+    - name: nginx conf validation output
+      debug:
+        var: output.stderr_lines
+    - name: restart nginx service
+      service:
         name: nginx
+        state: restarted
+    - name: Copy php page
+      copy:
+        src: index.php
+        dest: /var/www/html/
+        mode: 0777
+    - name: chmod for www folder
+      file:
+        path: /var/www/html
+        mode: 0777
+        recurse: yes
