@@ -1,12 +1,12 @@
 - name: Set up nodes
   hosts: nodes
   tasks:
-    - name: add PPA php
+    - name: add PPA php-fpm
       apt_repository:
         validate_certs: no
         repo: 'ppa:ondrej/php'
         state: present
-    - name: install nginx, php
+    - name: install nginx, php-fpm
       apt:
         pkg:
         - nginx

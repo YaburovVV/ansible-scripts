@@ -1,9 +1,11 @@
 nodes:
   hosts:
     node1:
-      ansible_host: 62.113.107.107
+      ansible_host: 62.217.178.229
     node2:
-      ansible_host: 62.217.178.41
+      ansible_host: 62.217.178.149
+    node3:
+      ansible_host: 62.217.178.136
 
   vars:
     ansible_user: root
