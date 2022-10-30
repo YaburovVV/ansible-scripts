@@ -1,0 +1,5 @@
+- name: Set up nodes
+  hosts: nodes
+  tasks:
+#    - include_tasks: installWebServer.yml
+    - include_tasks: publishSite.yml
