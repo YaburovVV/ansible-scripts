@@ -1,0 +1,11 @@
+- name: nginx conf validation
+  shell: nginx -t
+  register: output
+- name: nginx conf validation output
+  debug:
+    var: output.stderr_lines
+- name: chmod for www folder
+  file:
+    path: /var/www/html
+    mode: 0777
+    recurse: yes

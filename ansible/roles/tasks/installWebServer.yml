@@ -9,16 +9,11 @@
         pkg:
         - nginx
         - php8.1-fpm
+      notify:
+        - nginx conf validation
+        - nginx conf validation output
 
     - name: Copy a server configuration
       copy:
         src: ../nginx-site-conf
         dest: /etc/nginx/sites-available/default
-
-    - name: nginx conf validation
-      shell: nginx -t
-      register: output
-
-    - name: nginx conf validation output
-      debug:
-        var: output.stderr_lines

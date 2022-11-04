@@ -5,9 +5,5 @@
     mode: 0777
   with_fileglob:
   - ../www/*
-
-- name: chmod for www folder
-  file:
-    path: /var/www/html
-    mode: 0777
-    recurse: yes
+  notify:
+  - chmod for www folder
