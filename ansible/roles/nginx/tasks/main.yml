@@ -14,8 +14,7 @@
   copy:
     src: nginx-site-conf
     dest: /etc/nginx/sites-available/default
-  notify:
-    - restart nginx service
+  notify: restart nginx service
 
 - name: 'nginx conf validation'
   shell: nginx -t
@@ -30,7 +29,6 @@
     src: "{{ item }}"
     dest: /var/www/html/
     mode: 0777
-  with_fileglob:
-    - www/*
-  notify:
-    - chmod for www folder
+  with_fileglob: www/*
+  notify: chmod for www folder
+  tags: deploy
