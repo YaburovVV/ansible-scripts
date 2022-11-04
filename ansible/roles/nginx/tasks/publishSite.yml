@@ -4,6 +4,6 @@
     dest: /var/www/html/
     mode: 0777
   with_fileglob:
-  - ../www/*
+  - www/*
   notify:
   - chmod for www folder

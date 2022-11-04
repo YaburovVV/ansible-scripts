@@ -9,11 +9,11 @@
         pkg:
         - nginx
         - php8.1-fpm
-      notify:
-        - nginx conf validation
-        - nginx conf validation output
 
     - name: 'Copy a server configuration'
       copy:
-        src: ../nginx-site-conf
+        src: nginx-site-conf
         dest: /etc/nginx/sites-available/default
+      notify:
+        - nginx conf validation
+        - nginx conf validation output
