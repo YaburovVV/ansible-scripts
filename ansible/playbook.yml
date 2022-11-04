@@ -2,7 +2,3 @@
   hosts: nodes
   roles:
     - role: roles/nginx
-#  tasks:
-#    - include_tasks: roles/nginx/tasks/installWebServer.yml
-#    - include_tasks: roles/nginx/tasks/publishSite.yml
-#  handlers:
