@@ -1,6 +1,8 @@
 - name: Set up nodes
   hosts: nodes
-  tasks:
-#    - include_tasks: main.yml
-    - include_tasks: roles/tasks/publishSite.yml
-  handlers:
+  roles:
+    - role: roles/nginx
+#  tasks:
+#    - include_tasks: roles/nginx/tasks/installWebServer.yml
+#    - include_tasks: roles/nginx/tasks/publishSite.yml
+#  handlers:

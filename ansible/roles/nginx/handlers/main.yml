@@ -1,10 +1,12 @@
-- name: nginx conf validation
+- name: 'nginx conf validation'
   shell: nginx -t
   register: output
-- name: nginx conf validation output
+
+- name: 'nginx conf validation output'
   debug:
     var: output.stderr_lines
-- name: chmod for www folder
+
+- name: 'chmod for www folder'
   file:
     path: /var/www/html
     mode: 0777

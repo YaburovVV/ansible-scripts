@@ -1,10 +1,10 @@
-    - name: add PPA php-fpm
+    - name: 'add PPA php-fpm'
       apt_repository:
         validate_certs: no
         repo: 'ppa:ondrej/php'
         state: present
 
-    - name: install nginx, php-fpm
+    - name: 'install nginx, php-fpm'
       apt:
         pkg:
         - nginx
@@ -13,7 +13,7 @@
         - nginx conf validation
         - nginx conf validation output
 
-    - name: Copy a server configuration
+    - name: 'Copy a server configuration'
       copy:
         src: ../nginx-site-conf
         dest: /etc/nginx/sites-available/default

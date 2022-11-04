@@ -1,0 +1,2 @@
+- include_tasks: installWebServer.yml
+- include_tasks: publishSite.yml
