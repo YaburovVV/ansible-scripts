@@ -14,9 +14,8 @@
   copy:
     src: nginx-site-conf
     dest: /etc/nginx/sites-available/default
-#  notify:
-#    - nginx conf validation
-#    - nginx conf validation output
+  notify:
+    - restart nginx service
 
 - name: 'nginx conf validation'
   shell: nginx -t
@@ -26,11 +25,6 @@
   debug:
     var: output.stderr_lines
 
-- name: 'restart nginx service'
-  service:
-    name: nginx
-    state: restarted
-
 - name: 'Copy php page'
   copy:
     src: "{{ item }}"
@@ -38,11 +32,5 @@
     mode: 0777
   with_fileglob:
     - www/*
-#  notify:
-#    - chmod for www folder
-
-- name: 'chmod for www folder'
-  file:
-    path: /var/www/html
-    mode: 0777
-    recurse: yes
+  notify:
+    - chmod for www folder
