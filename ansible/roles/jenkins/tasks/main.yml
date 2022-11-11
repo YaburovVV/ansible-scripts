@@ -1,0 +1,28 @@
+- name: Download PGP Jenkins key
+  get_url:
+    url: https://pkg.jenkins.io/debian-stable/jenkins.io.key
+    dest: /usr/share/keyrings/jenkins-keyring.asc
+
+- name: Create Jenkins apt source list
+  shell: "echo deb [signed-by=/usr/share/keyrings/jenkins-keyring.asc] \
+    https://pkg.jenkins.io/debian-stable binary/ | sudo tee \
+    /etc/apt/sources.list.d/jenkins.list > /dev/null"
+
+- name: Update apt and install java
+  apt:
+    name: openjdk-11-jre
+    update_cache: yes
+
+- name: Install jenkins
+  apt:
+    name: jenkins
+
+- name: Get jenkins admin pass
+  shell: cat /var/lib/jenkins/secrets/initialAdminPassword
+  register: passwordVar
+
+- name: Password is
+  debug: msg={{passwordVar.stdout}}
+
+- name: Jenkins site is
+  debug: msg="http://{{hostvars[inventory_hostname]['ansible_default_ipv4']['address']}}:8080"

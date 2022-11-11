@@ -1,0 +1,4 @@
+- name: Set up nodes
+  hosts: nodes
+  roles:
+    - role: roles/jenkins
