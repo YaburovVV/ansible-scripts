@@ -1,7 +1,9 @@
 nodes:
   hosts:
-    node1:
+    nginx_node:
       ansible_host: 81.200.119.93
+    jenkins_node:
+      ansible_host: 62.113.99.102
   vars:
     ansible_user: root
     ansible_ssh_common_args: '-o StrictHostKeyChecking=no'
