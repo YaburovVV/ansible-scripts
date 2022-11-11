@@ -1,4 +1,4 @@
 - name: Set up nodes
-  hosts: nodes
+  hosts: nginx_node
   roles:
     - role: roles/nginx

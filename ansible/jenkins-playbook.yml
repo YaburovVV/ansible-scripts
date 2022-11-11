@@ -1,4 +1,4 @@
 - name: Set up nodes
-  hosts: nodes
+  hosts: jenkins_node
   roles:
     - role: roles/jenkins
