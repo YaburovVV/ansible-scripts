@@ -9,11 +9,22 @@ TODO: Install nginx from some central to all nodes.
 ### To install nginx + php-frm
 ```shell
 ansible-playbook -i ansible/inventory.yml \
-  ansible/nginx-playbook.yml 
+  ansible/nginx-playbook.yml
 ```
+or
+```shell
+/home/vladimir/code/ansible-scripts/setup_node.sh
+```
+
 
 ### To delpoy a site without nginx installing  
 ```shell
 ansible-playbook -i ansible/inventory.yml \
-  ansible/nginx-playbook.yml --tags 'deploy'
+  ansible/nginx-playbook.yml --tags 'deploy' 
+```
+
+### To install jenkins  
+```shell
+ansible-playbook -i inventory.yml \
+  jenkins-playbook.yml
 ```
