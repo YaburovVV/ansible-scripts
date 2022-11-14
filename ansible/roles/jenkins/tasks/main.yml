@@ -13,9 +13,11 @@
     name: openjdk-11-jre
     update_cache: yes
 
-- name: Install jenkins
+- name: Install jenkins and ansible
   apt:
-    name: jenkins
+    pkg:
+    - jenkins
+    - ansible
 
 - name: Get jenkins admin pass
   shell: cat /var/lib/jenkins/secrets/initialAdminPassword
