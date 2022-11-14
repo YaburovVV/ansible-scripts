@@ -32,3 +32,6 @@
   with_fileglob: www/*
   notify: chmod for www folder
   tags: deploy
+
+- name: 'nginx site is'
+  debug: msg="http://{{hostvars[inventory_hostname]['ansible_default_ipv4']['address']}}/"
