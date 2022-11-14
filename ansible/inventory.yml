@@ -1,7 +1,7 @@
 nodes:
   hosts:
     nginx_node:
-      ansible_host: 81.200.119.93
+      ansible_host: 45.67.56.38
     jenkins_node:
       ansible_host: 62.113.99.102
   vars:
