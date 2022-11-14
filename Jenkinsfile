@@ -4,7 +4,7 @@ pipeline {
     stage("execute Ansible") {
       steps {
         dir('ansible') {
-          ansiblePlaybook inventory: 'inventory.yml', playbook: 'nginx-playbook.yml'
+          ansiblePlaybook credentialsId: 'ssh_jen2', inventory: 'inventory.yml', playbook: 'nginx-playbook.yml'
         }
       }
     }
