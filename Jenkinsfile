@@ -3,7 +3,9 @@ pipeline {
   stages {
     stage("execute Ansible") {
       steps {
-        ansiblePlaybook inventory: 'ansible/inventory.yml', playbook: 'ansible/nginx-playbook.yml'
+        dir('ansible') {
+          ansiblePlaybook inventory: 'inventory.yml', playbook: 'nginx-playbook.yml'
+        }
       }
     }
   }
